@@ -1,0 +1,53 @@
+if (window == top) {
+    //add the keyboard handler
+    window.addEventListener('keyup', doKeyPress, false);
+}
+
+function doKeyPress(e) {
+    console.log(e); //
+    let tmp;
+    if (e.code == 'ArrowLeft') {
+        tmp = $('.pre.pr-1').attr('href');
+        location.assign(tmp);
+        console.log('上一支影片')
+    } else if (e.code == 'ArrowRight') {
+        tmp = $('.nex.ne-1');
+        if (tmp.length > 0) {
+            location.assign(tmp.attr('href'));
+            console.log('下一支影片')
+        }
+    } else if (e.code == 'ArrowDown') {
+        copyTitle();
+        window.open($('.dl-link').attr('href'));
+        //        tmp = "http://jtl.re/d/" + $('.dl-link').attr('href').split("=")[1] + ".torrent";
+        //        $.get({
+        //            url: tmp,
+        //
+        //            success: function () {
+        //                console.log('複製標題並下載影片種子檔');
+        //            }
+        //        });
+        //        
+        //        console.log('複製標題並下載影片種子檔');
+    } else if (e.code == 'ArrowUp') {
+        tmp = "http://jtl.re/d/" + $('.j-link').attr('href').split("=")[1] + ".torrent";
+        location.href = tmp;
+        console.log('複製標題並下載影片種子檔');
+    } else if (e.code == 'Numpad1') {
+        window.close();
+    }
+}
+
+function copyTitle() {
+    $('.s[name="s"]').val($('.entry-title')[0].textContent);
+    $('.s[name="s"]').select();
+    document.execCommand('copy');
+    $('.s[name="s"]').val('');
+}
+
+function openUnvisited() {
+    let tmp = $('span.base-t');
+    tmp.filter(function (i, e) {
+        return $(e).css('color') == 'rgb(68, 85, 255)';
+    });
+}

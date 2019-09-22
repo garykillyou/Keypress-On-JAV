@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name": "Keypress On JAV",
+    "version": "0.1",
+    "description": "使用鍵盤瀏覽快速瀏覽JAV",
+    "permissions": [
+        "http://javtorrent.re/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "http://javtorrent.re/*",
+                "http://1be.re/j.php*"
+            ],
+            "js": [
+                "jquery-3.4.1.js",
+                "clipboard.min.js",
+                "key_event.js"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "page_action": {
+        "default_icon": "images/JAV32.png",
+        "default_title": "Keypress On JAV"
+    }
+}
