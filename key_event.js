@@ -18,17 +18,8 @@ function doKeyPress(e) {
         }
     } else if (e.code == 'ArrowDown') {
         copyTitle();
-        window.open($('.dl-link').attr('href'));
-        //        tmp = "http://jtl.re/d/" + $('.dl-link').attr('href').split("=")[1] + ".torrent";
-        //        $.get({
-        //            url: tmp,
-        //
-        //            success: function () {
-        //                console.log('複製標題並下載影片種子檔');
-        //            }
-        //        });
-        //        
-        //        console.log('複製標題並下載影片種子檔');
+        let url = $('.single-t a').length > 1 ? $('.single-t a')[0].attributes.href : $('.single-t a').attr('href')
+        window.open(url);
     } else if (e.code == 'ArrowUp') {
         tmp = "http://jtl.re/d/" + $('.j-link').attr('href').split("=")[1] + ".torrent";
         location.href = tmp;
