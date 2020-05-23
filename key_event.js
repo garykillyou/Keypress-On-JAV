@@ -4,7 +4,7 @@ if (window == top) {
 }
 
 function doKeyPress(e) {
-    console.log(e); 
+    console.log(e);
     let tmp;
     if (e.code == 'KeyA') {
         tmp = $('.pre.pr-1').attr('href');
@@ -31,7 +31,10 @@ function doKeyPress(e) {
 }
 
 function copyTitle() {
-    $('.s[name="s"]').val($('.entry-title')[0].textContent);
+    let nameObj = document.getElementsByClassName('entry-title')[0];
+    let nameTxt = nameObj.textContent;
+    nameTxt = nameTxt.replace(/[\*\|\\:"<>?\/]/g, '');
+    $('.s[name="s"]').val(nameTxt);
     $('.s[name="s"]').select();
     document.execCommand('copy');
     $('.s[name="s"]').val('');
