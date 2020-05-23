@@ -4,27 +4,28 @@ if (window == top) {
 }
 
 function doKeyPress(e) {
-    console.log(e); //
+    console.log(e); 
     let tmp;
-    if (e.code == 'ArrowLeft') {
+    if (e.code == 'KeyA') {
         tmp = $('.pre.pr-1').attr('href');
         location.assign(tmp);
         console.log('上一支影片')
-    } else if (e.code == 'ArrowRight') {
+    } else if (e.code == 'KeyD') {
         tmp = $('.nex.ne-1');
         if (tmp.length > 0) {
             location.assign(tmp.attr('href'));
             console.log('下一支影片')
         }
-    } else if (e.code == 'ArrowDown') {
+    } else if (e.code == 'KeyS') {
         copyTitle();
         let url = $('.single-t a').length > 1 ? $('.single-t a')[0].attributes.href : $('.single-t a').attr('href')
         window.open(url);
-    } else if (e.code == 'ArrowUp') {
+    } else if (e.code == 'KeyW') {
         tmp = "http://jtl.re/d/" + $('.j-link').attr('href').split("=")[1] + ".torrent";
+        console.log(tmp);
         location.href = tmp;
         console.log('複製標題並下載影片種子檔');
-    } else if (e.code == 'Numpad1') {
+    } else if (e.code == 'KeyX') {
         window.close();
     }
 }

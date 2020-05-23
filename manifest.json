@@ -11,7 +11,7 @@
             "matches": [
                 "http://javtorrent.re/*",
                 "http://1be.re/j.php*",
-                "http://*.1be.re/j.php*"
+                "http://*.re/j.php*"
             ],
             "js": [
                 "jquery-3.4.1.js",
